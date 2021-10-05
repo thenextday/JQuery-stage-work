@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="rongYao.css" type="text/css">
+    <script src="rongyao.js"></script>
+    <link rel="icon" href="imgs/sc.jpg" type="image/x-icon">
+    <title>王者荣耀英雄资料列表</title>
+    <!-- 对应网站https://pvp.qq.com/web201605/herolist.shtml -->
+</head>
+
+<body>
+    <div class="daTuPian" contenteditable="true">
+        <img src="imgs/rongYao.jpg" alt="">
+    </div>
+
+    
+
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">
+            <img src="imgs/logo.png" alt="logo" style="width:40px;">
+        </a>
+
+        <!-- Links -->
+        <ul class="navbar-nav herosOperate">
+            <li class="nav-item">
+                <a class="btn btn-outline-success addHero" data-toggle="modal" data-target="#addHeros" href="###">添加英雄</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-warning" data-toggle="modal" data-target="#reviseHerosId"  href="###">修改英雄</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-danger removeHero" data-toggle="modal" data-target="#removeHero" href="###">删除英雄</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn btn-outline-info removeHero" data-toggle="modal" data-target="#searchHero" href="###"> 查找英雄</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 增加英雄模态框 -->
+    <div class="modal fade" id="addHeros">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">英雄属性</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <form class="" action="">
+                        英雄名称：<input type="text" class="heroName" required><hr>
+                        英雄职业：<input type="text" class="heroVocation" required><hr>
+                        英雄技能：<input type="text" class="heroSkill" required><hr>
+                        英雄图片：<input type="file" class="heroPic "><hr>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 输入修改英雄的id号-->
+    <div class="modal fade" id="reviseHerosId">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class=" modal-title">请输入小修改英雄的id号</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <form class="" action="">
+                        id号：<input class="obtainId" type="text" placeholder="当鼠标移入图片时即可获得图片的id号">
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <form class="" action="">
+                        <a class="btn btn-outline-warning" data-toggle="modal" data-target="#reviseHeros"  href="###">确认修改此英雄</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 输入修改英雄的属性-->
+    <div class="modal fade" id="reviseHeros">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">修改英雄属性</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <form class="" action="">
+                        修改名称：<input class="reviseName" type="text"><hr>
+                        修改职业：<input class="reviseVocation" type="text"><hr>
+                        修改技能：<input type="text" class="reviseSkill"><hr>
+                        <button id="revise" class="btn btn-warning">确认修改</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 输入删除英雄模态框 -->
+    <div class="modal fade" id="removeHero">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">请输入要删除英雄的名称</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <form action="">
+                        英雄名称：<input type="text" class="serachName"><hr>
+                        <button  type="button" class="btn btn-danger removeName" data-toggle="modal" data-target="#revealRemoveHero">显示英雄信息</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 显示删除英雄模态框 -->
+    <div class="modal fade" id="revealRemoveHero">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">要找的英雄在此</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body revealHeroMessage">
+                    <P class="explain">英雄名称：</P>
+                    <p class="revealRemoveName">无此英雄</p><hr>
+                    <P class="explain">英雄职业：</P>
+                    <p class="revealRemoveVocation">无此英雄</p><hr>
+                    <P class="explain">英雄技能</P>
+                    <p class="revealRemoveSkill">无此英雄</p><hr>
+                    <img src="" alt="" class="revealRemovePic">
+                    <p class="addexplain">将鼠标移入图片会显示英雄id</p><hr>
+                    <button type="submit" class="btn btn-danger removeTheHero">确认删除此英雄</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 输入查找英雄模态框 -->
+    <div class="modal fade" id="searchHero">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class=" modal-title">请输入要查找的英雄名称</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <form class="" action="">
+                        英雄名称：<input class="letSerach" type="text" class=""><hr>
+                        <button type="button" class="close describeHero" data-dismiss="modal" href="###">点此开始查找</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 显示英雄信息模态框 -->
+    <div class="otot" id="revealHero">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">要找的英雄在此</h4>
+                    <button type="button" class="close viewClose" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body revealHeroMessage">
+                    <P class="explain">英雄名称：</P>
+                    <p class="revealName">无此英雄</p><hr>
+                    <P class="explain">英雄职业：</P>
+                    <p class="revealVocation">无此英雄</p><hr>
+                    <P class="explain">英雄技能</P>
+                    <p class="revealSkill">无此英雄</p><hr>
+                    <img src="" alt="" class="revealPic">
+                    <p class="addexplain">将鼠标移入图片会显示英雄id</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="background_color"></div>
+
+    <div class="container heros-collect">
+        <h1>英雄王者，一览无余</h1>
+
+        <div class="row heros-column">
+            <!-- <img src="imgs/heros/BianQue.jpg" alt=""> -->
+        </div>
+    </div>
+    <div class="shuru" contenteditable="true" placeholder="这地啊！可以输入" style="width: 300px;height:80px;color:black"></div>
+</body>
+
+</html>

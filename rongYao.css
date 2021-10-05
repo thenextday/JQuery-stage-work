@@ -1,0 +1,55 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.daTuPian{
+    width: 1519px;
+    height: 650px;
+    overflow: hidden;
+}
+
+.daTuPian img{
+    width: 1519px;
+}
+
+.heros-column{
+    list-style: none;
+}
+
+.heros-column li{
+    margin-bottom: 50px;
+}
+
+.obtainId{
+    width: 300px;
+}
+
+.explain{
+    color: brown;
+}
+
+.addexplain{
+    color:red;
+}
+
+.otot{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 500;
+    display: none;
+}
+
+.background_color{
+    width: 1519px;
+    height: 800px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    display: none;
+}
